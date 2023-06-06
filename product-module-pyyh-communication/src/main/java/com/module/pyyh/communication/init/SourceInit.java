@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSONObject;
+import com.module.pyyh.communication.init.service.ACommunicationOperate;
+import com.module.pyyh.communication.init.service.ICommunicationService;
 import com.module.pyyh.communication.pojo.CommunicationConfigPojo;
 import com.module.pyyh.communication.util.BaseUtil;
 import com.module.pyyh.communication.util.ContainerUtil;
@@ -35,8 +37,13 @@ public class SourceInit {
 				sb.append((char)_b);
 			}
 			CommunicationConfigPojo commPojo = JSONObject.parseObject(sb.toString(), CommunicationConfigPojo.class);
+			if(commPojo.isUsed()){
+				Class<?>[] parameterTypes = {Object.class};
+				Object[] parameters = {commPojo};
+				ICommunicationService<?, ?> commService = (ICommunicationService<?, ?>)Class.forName(commPojo.getImpClass()).getConstructor(parameterTypes).newInstance(parameters);
+				commService.operate();
+			}
 			
-			System.out.println(commPojo.getType());
 		}
 	}
 }

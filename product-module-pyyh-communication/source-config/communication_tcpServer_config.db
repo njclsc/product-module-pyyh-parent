@@ -1,3 +1,12 @@
 {
-	"type":"httpServer"
+	"type":"TCP_SERVER",
+	"used":true,
+	"impClass":"com.module.pyyh.communication.init.serviceimp.TcpServerImp",
+	"miniBuf": 512,
+	"maxBuf": 2048,
+	"initBuf": 512,
+	"queueSize": 1024,
+	"addresses":[
+		"192.168.3.145:6666","192.168.3.145:6667"
+	]
 }

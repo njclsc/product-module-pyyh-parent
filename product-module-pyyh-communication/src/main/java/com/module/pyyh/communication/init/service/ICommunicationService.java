@@ -2,6 +2,7 @@ package com.module.pyyh.communication.init.service;
 
 public interface ICommunicationService<R, P> {
 
-	public R init(P p);
-	public R regist(P p);
+	public void operate();
+	public R initSource(P p);
+	public R registSource(P p);
 }
