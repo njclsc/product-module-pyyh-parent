@@ -1,0 +1,13 @@
+{
+	"type":"LIZER_TCPSERVER",
+	"impClass":"com.module.pyyh.communication.init.serviceimp.TcpServerImp",
+	"handlers":[
+		{"handlerName":"xxx", "impClass":""},
+		{"handlerName":"xxx", "impClass":""},
+		{"handlerName":"xxx", "impClass":""},
+		{"handlerName":"xxx", "impClass":""}
+	],
+	"businessOrder":[
+		"", "", ""
+	]
+}
