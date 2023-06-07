@@ -42,8 +42,7 @@ public class UdpImp<R, P> extends ACommunicationOperate<R, P>{
 		UdpInitializer lizer = BaseUtil.instanceLoader(UdpInitializer.class, null, null, lcp.getImpClass());
 		lizer.setLcp(lcp);
 		boot.group(work).channel(NioDatagramChannel.class).option(ChannelOption.RCVBUF_ALLOCATOR, 
-				new AdaptiveRecvByteBufAllocator(ccp.getMiniBuf(), ccp.getInitBuf(), ccp.getMaxBuf()))
-		.handler(lizer);
+				new AdaptiveRecvByteBufAllocator(ccp.getMiniBuf(), ccp.getInitBuf(), ccp.getMaxBuf())).handler(lizer);
 		for(String adr : ccp.getAddresses()){
 			String[] adrs = adr.split(":");
 			ChannelFuture future = boot.bind(new InetSocketAddress(adrs[0], Integer.parseInt(adrs[1])));

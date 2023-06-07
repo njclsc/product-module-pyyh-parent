@@ -1,6 +1,6 @@
 {
 	"type":"TCP_CLIENT",
-	"impClass":"com.module.pyyh.communication.init.lizer.TcpServerInitializer",
+	"impClass":"com.module.pyyh.communication.init.lizer.TcpClientInitalizer",
 	"handlers":[
 		"t1_com.module.pyyh.communication.business.handler.Test1Handler",
 		"t2_com.module.pyyh.communication.business.handler.Test2Handler",
@@ -8,6 +8,6 @@
 		"t4_com.module.pyyh.communication.business.handler.Test4Handler"
 	],
 	"businessOrder":[
-		"t1", "t2", "t3", "t4"
+		"t3", "t2", "t4", "t1"
 	]
 }
