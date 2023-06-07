@@ -29,21 +29,15 @@ public class SourceInit {
 		ContainerUtil.setAPPLICATION_ROOT_PATH(System.getProperty("user.dir"));
 	}
 	private static void communicationSource() throws Exception{
-		File[] fs = BaseUtil.listFile(ContainerUtil.getAPPLICATION_ROOT_PATH() + "/source-config/", "communication");
-		for(File f : fs){
-			byte[] b = BaseUtil.loadFile(f.getPath());
-			StringBuffer sb = new StringBuffer();
-			for(byte _b : b){
-				sb.append((char)_b);
-			}
-			CommunicationConfigPojo commPojo = JSONObject.parseObject(sb.toString(), CommunicationConfigPojo.class);
+		for(File f : BaseUtil.listFile(ContainerUtil.getAPPLICATION_ROOT_PATH() + "/source-config/", "communication")){
+			CommunicationConfigPojo commPojo = BaseUtil.dataToJson(1, BaseUtil.loadFile(f.getPath()), CommunicationConfigPojo.class);
 			if(commPojo.isUsed()){
 				Class<?>[] parameterTypes = {Object.class};
 				Object[] parameters = {commPojo};
-				ICommunicationService<?, ?> commService = (ICommunicationService<?, ?>)Class.forName(commPojo.getImpClass()).getConstructor(parameterTypes).newInstance(parameters);
+				ICommunicationService<?, ?> commService = (ICommunicationService<?, ?>)BaseUtil.instanceLoader(CommunicationConfigPojo.class, 
+						parameterTypes, parameters, commPojo.getImpClass());
 				commService.operate();
 			}
-			
 		}
 	}
 }

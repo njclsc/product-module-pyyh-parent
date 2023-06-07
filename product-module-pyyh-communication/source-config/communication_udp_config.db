@@ -1,7 +1,10 @@
 {
 	"type":"UDP",
 	"used":false,
-	"impClass":"com.module.pyyh.communication.init.serviceimp.TCPServerImp",
+	"impClass":"com.module.pyyh.communication.init.serviceimp.UdpImp",
+	"miniBuf": 512,
+	"maxBuf": 2048,
+	"initBuf": 512,
 	"addresses":[
 		"192.168.3.145:6666","192.168.3.145:6667"
 	]

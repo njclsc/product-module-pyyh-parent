@@ -1,8 +1,11 @@
 {
 	"type":"TCP_CLIENT",
-	"used":false,
-	"impClass":"com.module.pyyh.communication.init.serviceimp.TCPServerImp",
+	"used":true,
+	"impClass":"com.module.pyyh.communication.init.serviceimp.TcpClientImp",
+	"miniBuf": 512,
+	"maxBuf": 2048,
+	"initBuf": 512,
 	"addresses":[
-		"192.168.3.145:6666","192.168.3.145:6667"
+		"192.168.3.145:6666_to_192.168.3.145:16666","192.168.3.145:6667_to_192.168.3.145:16666"
 	]
 }

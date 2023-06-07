@@ -1,6 +1,6 @@
 {
 	"type":"TCP_SERVER",
-	"used":true,
+	"used":false,
 	"impClass":"com.module.pyyh.communication.init.serviceimp.TcpServerImp",
 	"miniBuf": 512,
 	"maxBuf": 2048,

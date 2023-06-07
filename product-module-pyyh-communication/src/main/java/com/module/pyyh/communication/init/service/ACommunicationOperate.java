@@ -5,7 +5,7 @@ public abstract class ACommunicationOperate<R, P> implements ICommunicationServi
 	public ACommunicationOperate(P p){
 		this.p = p;
 	}
-	public void operate(){
+	public void operate() throws Exception{
 		initSource(p);
 		registSource(p);
 	}
