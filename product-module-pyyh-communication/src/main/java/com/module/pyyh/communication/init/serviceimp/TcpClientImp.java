@@ -47,6 +47,7 @@ public class TcpClientImp<R, P> extends ACommunicationOperate<R, P> {
 			String[] localAddr = addresses[0].split(":");
 			String[] remoteAddr = addresses[1].split(":");
 			ChannelFuture future = boot.connect(new InetSocketAddress(remoteAddr[0], Integer.parseInt(remoteAddr[1])), new InetSocketAddress(localAddr[0], Integer.parseInt(localAddr[1])));
+			ContainerUtil.getTcpClientChannelFuture().put(addresses[0], future);
 		}
 		return null;
 	}
