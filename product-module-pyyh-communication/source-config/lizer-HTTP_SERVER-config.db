@@ -1,0 +1,13 @@
+{
+	"type":"HTTP_SERVER",
+	"impClass":"com.module.pyyh.communication.init.lizer.HttpServerInitializer",
+	"handlers":[
+		"t1_com.module.pyyh.communication.business.handler.TestHttpHandler1",
+		"t2_com.module.pyyh.communication.business.handler.TestHttpHandler2",
+		"t3_com.module.pyyh.communication.business.handler.TestHttpHandler3",
+		"t4_com.module.pyyh.communication.business.handler.TestHttpHandler4"
+	],
+	"businessOrder":[
+		"t3", "t1", "t4", "t2"
+	]
+}

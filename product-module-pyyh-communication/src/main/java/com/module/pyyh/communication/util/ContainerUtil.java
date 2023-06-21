@@ -11,6 +11,7 @@ public class ContainerUtil {
 	private static HashMap<String, ChannelFuture> tcpServerChannelFuture = new HashMap<>();
 	private static HashMap<String, ChannelFuture> udpChannelFuture = new HashMap<>();
 	private static HashMap<String, ChannelFuture> tcpClientChannelFuture = new HashMap<>();
+	private static HashMap<String, ChannelFuture> httpServerChannelFuture = new HashMap<>();
 	//tcpHandler缓存
 	private static HashMap<String, String> handlers = new HashMap<>();
 	
@@ -20,6 +21,14 @@ public class ContainerUtil {
 
 	public static HashMap<String, ChannelFuture> getTcpClientChannelFuture() {
 		return tcpClientChannelFuture;
+	}
+
+	public static HashMap<String, ChannelFuture> getHttpServerChannelFuture() {
+		return httpServerChannelFuture;
+	}
+
+	public static void setHttpServerChannelFuture(HashMap<String, ChannelFuture> httpServerChannelFuture) {
+		ContainerUtil.httpServerChannelFuture = httpServerChannelFuture;
 	}
 
 	public static void setTcpClientChannelFuture(HashMap<String, ChannelFuture> tcpClientChannelFuture) {
