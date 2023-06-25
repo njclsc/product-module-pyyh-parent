@@ -1,0 +1,19 @@
+{
+	"jobs": [{
+		"used": true,
+		"groupJobName": "groupJobName1",
+		"jobName": "jobName1",
+		"groupTriggerName": "groupTriggerName1",
+		"triggerName": "triggerName",
+		"cron": "*/2 * * * * ?",
+		"jobClassName": "com.module.pyyh.communication.business.quartzjob.TestJob1"
+	},{
+		"used": true,
+		"groupJobName": "groupJobName2",
+		"jobName": "jobName2",
+		"groupTriggerName": "groupTriggerName2",
+		"triggerName": "triggerName",
+		"cron": "*/10 * * * * ?",
+		"jobClassName": "com.module.pyyh.communication.business.quartzjob.TestJob2"
+	}]
+}
