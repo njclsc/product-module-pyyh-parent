@@ -26,8 +26,7 @@ public class InitStatusListener implements ApplicationListener<ContextRefreshedE
 	private void loadQuartz(Scheduler scheduler){
 		try {
 			for(File f : BaseUtil.listFile(ContainerUtil.getAPPLICATION_ROOT_PATH() + "/source-config/", "quartz-task")){
-				QuartzConfigPojo quartzConfig = BaseUtil.dataToJson(1, BaseUtil.loadFile(f.getPath()), QuartzConfigPojo.class);
-				for(QuartzConfigPojo qcp : quartzConfig.getJobs()){
+				for(QuartzConfigPojo qcp : BaseUtil.dataToJson(1, BaseUtil.loadFile(f.getPath()), QuartzConfigPojo.class).getJobs()){
 					if(qcp.isUsed()){
 						new QuartzTaskImp<QuartzConfigPojo, Scheduler>(qcp, scheduler).registTask();
 					}

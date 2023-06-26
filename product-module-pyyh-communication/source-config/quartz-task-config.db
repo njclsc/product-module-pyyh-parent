@@ -1,6 +1,6 @@
 {
 	"jobs": [{
-		"used": true,
+		"used": false,
 		"groupJobName": "groupJobName1",
 		"jobName": "jobName1",
 		"groupTriggerName": "groupTriggerName1",
@@ -8,7 +8,7 @@
 		"cron": "*/2 * * * * ?",
 		"jobClassName": "com.module.pyyh.communication.business.quartzjob.TestJob1"
 	},{
-		"used": true,
+		"used": false,
 		"groupJobName": "groupJobName2",
 		"jobName": "jobName2",
 		"groupTriggerName": "groupTriggerName2",
