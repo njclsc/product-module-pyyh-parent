@@ -2,19 +2,22 @@ package com.module.pyyh.communication.util;
 
 import java.util.HashMap;
 
+import javax.sql.DataSource;
+
 import io.netty.channel.ChannelFuture;
 
 public class ContainerUtil {
 	//根路径
 	private static String APPLICATION_ROOT_PATH;
-	//tcpServer缓存
+	//通信缓存
 	private static HashMap<String, ChannelFuture> tcpServerChannelFuture = new HashMap<>();
 	private static HashMap<String, ChannelFuture> udpChannelFuture = new HashMap<>();
 	private static HashMap<String, ChannelFuture> tcpClientChannelFuture = new HashMap<>();
 	private static HashMap<String, ChannelFuture> httpServerChannelFuture = new HashMap<>();
-	//tcpHandler缓存
+	//handler缓存
 	private static HashMap<String, String> handlers = new HashMap<>();
-	
+	//数据源
+	private static DataSource dataSource;
 	public static HashMap<String, String> getHandlers() {
 		return handlers;
 	}
@@ -33,6 +36,14 @@ public class ContainerUtil {
 
 	public static void setTcpClientChannelFuture(HashMap<String, ChannelFuture> tcpClientChannelFuture) {
 		ContainerUtil.tcpClientChannelFuture = tcpClientChannelFuture;
+	}
+
+	public static DataSource getDataSource() {
+		return dataSource;
+	}
+
+	public static void setDataSource(DataSource dataSource) {
+		ContainerUtil.dataSource = dataSource;
 	}
 
 	public static void setHandlers(HashMap<String, String> handlers) {
