@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" monitorInterVal="50">
+	<properties>
+		<property name="logDir">./app_logs</property>
+	</properties>
+	<Appenders>
+		<Console name="consloleAppender" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+		<RollingFile name="rollingFile" fileName="${logDir}/rollo.log" filePattern="${logDir}/$${date:yyyy_MM_dd}/bk_%d{yyyy_MM_dd_HH_mm}_%i.log">
+			<PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} %m%n" />
+			<Policies>
+				<OnStartupTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="10KB" />
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+			<DefaultRolloverStrategy max="500" />
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="consloleAppender" />
+		</Root>
+		<AsyncLogger name="console" level="info" includeLocation="false" additivity="false">
+			<AppenderRef ref="consloleAppender" />
+		</AsyncLogger>
+		<AsyncLogger name="rolling" level="info" includeLocation="false" additivity="false">
+			<AppenderRef ref="rollingFile" />
+		</AsyncLogger>
+	</Loggers>
+</Configuration>
