@@ -16,11 +16,12 @@ public class LoggerTest {
 //		System.out.println(log.getName() + "  " + log.getClass());
 		for(int i = 0; i < 1000; i++){
 			log.info("111111111111111");
+//			Thread.sleep(100);
 		}
-		Logger log1 = LoggerFactory.getLogger("rolling");
-		for(int i = 0; i < 5000; i++){
-			log1.info("111111111111111");
-			Thread.sleep(100);
+		Logger log1 = LoggerFactory.getLogger("console");
+		for(int i = 0; i < 1000; i++){
+			log1.info("2222222222");
+//			Thread.sleep(100);
 		}
 		for(int i = 0; i < 100; i++){
 			System.out.println("333333333333333333333");
